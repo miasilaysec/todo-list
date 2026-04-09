@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yapılacaklar Listesi</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="hero">
+        <div>
+          <p class="hero-label">Kişisel Planlayıcı</p>
+          <h1>Yapılacaklar Listesi</h1>
+          <p class="subtitle">Gününü daha planlı hale getir.</p>
+        </div>
+        <div class="hero-badges">
+          <span class="badge">Basit</span>
+          <span class="badge">Hızlı</span>
+          <span class="badge">Düzenli</span>
+        </div>
+      </header>
+
+      <section class="card">
+        <p class="section-title">Yeni Görev Ekle</p>
+        <form id="todo-form" class="todo-form">
+          <input
+            id="todo-input"
+            type="text"
+            placeholder="Yeni görev yaz..."
+            autocomplete="off"
+            maxlength="120"
+          />
+          <select id="status-input" aria-label="Görev durumu">
+            <option value="yapilacak">Yapılacak</option>
+            <option value="devam">Devam Ediyor</option>
+            <option value="tamamlandi">Tamamlandı</option>
+          </select>
+          <button type="submit">Ekle</button>
+        </form>
+
+        <div class="search-area">
+          <label for="search-input" class="search-label">Filtrele</label>
+          <input
+            id="search-input"
+            type="text"
+            placeholder="Görevlerde ara..."
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="status-filters" id="status-filters">
+          <button type="button" class="status-filter active" data-filter="all">Tümü</button>
+          <button type="button" class="status-filter" data-filter="yapilacak">Yapılacak</button>
+          <button type="button" class="status-filter" data-filter="devam">Devam Eden</button>
+          <button type="button" class="status-filter" data-filter="tamamlandi">Tamamlandı</button>
+        </div>
+
+        <ul id="todo-list" class="todo-list"></ul>
+        <p id="empty-message" class="empty-message">
+          Henüz görev eklenmedi. Yukarıdan ilk görevini ekleyebilirsin.
+        </p>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
