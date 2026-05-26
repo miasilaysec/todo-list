@@ -2,6 +2,8 @@
 
 HTML/CSS/JavaScript frontend, Go REST API backend, PostgreSQL ve Docker ile çalışan yapılacaklar uygulaması.
 
+> **Not:** Hafta 1'deki basit sürüm (localStorage) `frontend/` klasöründeki güncel arayüz ve API entegrasyonu ile değiştirilmiştir.
+
 ## Özellikler (Görev İsterleri)
 
 - **Go backend** — `net/http` ile REST API, base path `/api/v1`
