@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yapılacaklar Listesi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Sora:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="ambient" aria-hidden="true">
+      <div class="bg-blob bg-blob-1"></div>
+      <div class="bg-blob bg-blob-2"></div>
+      <div class="bg-blob bg-blob-3"></div>
+      <div class="bg-noise"></div>
+      <div class="bg-grid"></div>
+      <div class="bg-shine"></div>
+    </div>
+
+    <main class="container">
+      <header class="hero-panel">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="hero-top">
+          <div class="hero-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+              <path d="M9 11l3 3L22 4" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <div class="hero-text">
+            <p class="hero-label">
+              <span class="label-dot"></span>
+              Kişisel Planlayıcı
+            </p>
+            <h1>Yapılacaklar <em>Listesi</em></h1>
+            <p class="subtitle">Görevlerini planla, odaklan ve tamamla.</p>
+          </div>
+        </div>
+        <div class="hero-badges">
+          <span class="badge"><span class="badge-dot badge-dot-api"></span>REST API</span>
+          <span class="badge"><span class="badge-dot badge-dot-jwt"></span>JWT</span>
+          <span class="badge"><span class="badge-dot badge-dot-db"></span>PostgreSQL</span>
+        </div>
+      </header>
+
+      <section id="auth-section" class="card card-glow auth-card">
+        <div class="card-head">
+          <div class="card-icon card-icon-auth" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" stroke-linecap="round" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+          </div>
+          <div>
+            <p class="section-title">Hoş geldin</p>
+            <p class="section-desc">Devam etmek için giriş yap veya hesap oluştur.</p>
+          </div>
+        </div>
+
+        <form id="auth-form" class="auth-form">
+          <label class="field">
+            <span class="field-label">Kullanıcı adı</span>
+            <div class="input-wrap">
+              <span class="input-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" stroke-linecap="round" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+              </span>
+              <input
+                id="username-input"
+                type="text"
+                placeholder="kullaniciadi"
+                autocomplete="username"
+                maxlength="64"
+                required
+              />
+            </div>
+          </label>
+          <label class="field">
+            <span class="field-label">Şifre</span>
+            <div class="input-wrap">
+              <span class="input-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="11" width="18" height="11" rx="2" />
+                  <path d="M7 11V7a5 5 0 0110 0v4" stroke-linecap="round" />
+                </svg>
+              </span>
+              <input
+                id="password-input"
+                type="password"
+                placeholder="En az 6 karakter"
+                autocomplete="current-password"
+                minlength="6"
+                required
+              />
+            </div>
+          </label>
+          <div class="auth-actions">
+            <button type="submit" id="login-btn" class="btn-primary btn-shine">
+              <span>Giriş Yap</span>
+            </button>
+            <button type="button" id="register-btn" class="btn-ghost">Kayıt Ol</button>
+          </div>
+        </form>
+        <p id="auth-error" class="message message-error" hidden></p>
+      </section>
+
+      <section id="app-section" class="card card-glow app-card" hidden>
+        <div class="app-header">
+          <div class="card-head">
+            <div class="card-icon card-icon-tasks" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div>
+              <p class="section-title">Görevlerim</p>
+              <p class="section-desc">Tüm veriler güvenli API üzerinden saklanır.</p>
+            </div>
+          </div>
+          <button type="button" id="logout-btn" class="btn-ghost btn-sm">Çıkış</button>
+        </div>
+
+        <div class="progress-panel">
+          <div class="progress-ring-wrap" aria-hidden="true">
+            <svg class="progress-ring" viewBox="0 0 80 80">
+              <circle class="progress-ring-bg" cx="40" cy="40" r="34" />
+              <circle class="progress-ring-fill" id="progress-ring-fill" cx="40" cy="40" r="34" />
+            </svg>
+            <span class="progress-percent" id="progress-percent">0%</span>
+          </div>
+          <div class="progress-info">
+            <p class="progress-title">Tamamlanma oranı</p>
+            <p class="progress-sub" id="progress-sub">Henüz görev yok</p>
+            <div class="progress-track">
+              <div class="progress-bar" id="progress-bar"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stats" id="stats-bar">
+          <div class="stat">
+            <span class="stat-icon stat-icon-total" aria-hidden="true">◎</span>
+            <span class="stat-value" id="stat-total">0</span>
+            <span class="stat-label">Toplam</span>
+          </div>
+          <div class="stat stat-active">
+            <span class="stat-icon" aria-hidden="true">◐</span>
+            <span class="stat-value" id="stat-active">0</span>
+            <span class="stat-label">Devam</span>
+          </div>
+          <div class="stat stat-done">
+            <span class="stat-icon" aria-hidden="true">●</span>
+            <span class="stat-value" id="stat-done">0</span>
+            <span class="stat-label">Bitti</span>
+          </div>
+        </div>
+
+        <form id="todo-form" class="add-form">
+          <p class="add-form-label">Yeni görev</p>
+          <div class="add-form-row">
+            <div class="input-wrap input-wrap-grow">
+              <span class="input-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 5v14M5 12h14" stroke-linecap="round" />
+                </svg>
+              </span>
+              <input
+                id="todo-input"
+                type="text"
+                placeholder="Ne yapmak istiyorsun?"
+                autocomplete="off"
+                maxlength="255"
+              />
+            </div>
+            <button type="submit" class="btn-primary btn-add btn-shine" aria-label="Görev ekle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+          <label class="toggle-completed">
+            <input id="completed-input" type="checkbox" />
+            <span class="toggle-track"></span>
+            <span class="toggle-label">Tamamlanmış olarak ekle</span>
+          </label>
+        </form>
+
+        <div class="toolbar">
+          <label class="field field-search">
+            <div class="input-wrap">
+              <span class="input-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8" />
+                  <path d="M21 21l-4.35-4.35" stroke-linecap="round" />
+                </svg>
+              </span>
+              <input
+                id="search-input"
+                type="text"
+                placeholder="Görevlerde ara..."
+                autocomplete="off"
+              />
+            </div>
+          </label>
+
+          <div class="status-filters" id="status-filters" role="tablist">
+            <button type="button" class="status-filter active" data-filter="all" role="tab">Tümü</button>
+            <button type="button" class="status-filter" data-filter="active" role="tab">Devam</button>
+            <button type="button" class="status-filter" data-filter="completed" role="tab">Bitti</button>
+          </div>
+        </div>
+
+        <ul id="todo-list" class="todo-list"></ul>
+
+        <div id="empty-message" class="empty-state" hidden>
+          <div class="empty-illustration" aria-hidden="true">
+            <svg viewBox="0 0 120 100" fill="none">
+              <rect x="20" y="18" width="80" height="64" rx="12" stroke="currentColor" stroke-width="2" opacity="0.2" />
+              <path d="M36 42h48M36 56h32M36 70h20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" opacity="0.35" />
+              <circle cx="88" cy="28" r="14" fill="url(#emptyGrad)" opacity="0.9" />
+              <path d="M83 28l3 3 6-7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <defs>
+                <linearGradient id="emptyGrad" x1="74" y1="14" x2="102" y2="42">
+                  <stop stop-color="#7c3aed" />
+                  <stop offset="1" stop-color="#ec4899" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <p class="empty-title">Henüz görev yok</p>
+          <p class="empty-desc">Yukarıdan ilk görevini ekleyerek başla.</p>
+        </div>
+
+        <p id="app-error" class="message message-error" hidden></p>
+      </section>
+
+      <footer class="site-footer">
+        <span>Yavuzlar · Full Stack To-Do</span>
+      </footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
